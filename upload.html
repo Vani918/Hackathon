@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Text for AI Speech/Lecture</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="file"], input[type="number"], select {
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+        button {
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: 0.2s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Your File to Generate AI Speech/Lecture</h1>
+        <form action="/generate" method="POST" enctype="multipart/form-data">
+            <label for="file">Upload a file (txt, pdf, or docx):</label><br>
+            <input type="file" name="file" id="file" required><br><br>
+            
+            <!-- Speech Type Dropdown -->
+            <label for="speech_type">Select Speech Type:</label><br>
+            <select name="speech_type" id="speech_type" required>
+                <option value="informative">Informative</option>
+                <option value="persuasive">Persuasive</option>
+                <option value="descriptive">Descriptive</option>
+                <option value="narrative">Narrative</option>
+            </select><br><br>
+
+            <label for="length">Preferred Length of Speech (minutes):</label><br>
+            <input type="number" name="length" id="length" value="5" min="1" max="30"><br><br>
+            
+            <button type="submit">Generate AI Speech</button>
+        </form>
+    </div>
+</body>
+</html>
